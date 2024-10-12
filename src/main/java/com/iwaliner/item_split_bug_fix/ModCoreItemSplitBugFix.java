@@ -44,7 +44,7 @@ public class ModCoreItemSplitBugFix
           MinecraftForge.EVENT_BUS.register(this);
       }
 
-    @SubscribeEvent
+    /*@SubscribeEvent
      public void ItemOverEvent(ItemStackedOnOtherEvent event){
         fixBug(event.getCarriedItem());
         fixBug(event.getStackedOnItem());
@@ -69,7 +69,7 @@ public class ModCoreItemSplitBugFix
         for(int i=0;i<event.getContainer().getItems().size();i++) {
             fixBug(event.getContainer().getItems().get(i));
         }
-    }
+    }*/
     public static boolean isSplitItemStack(ItemStack stack){
         return stack.getTag()!=null&&stack.getTag().isEmpty();
     }
@@ -82,7 +82,7 @@ public class ModCoreItemSplitBugFix
     @SubscribeEvent
     public void ItemTooltipEvent(ItemTooltipEvent event){
         if(ModCoreItemSplitBugFix.isSplitItemStack(event.getItemStack())){
-               event.getToolTip().add(Component.literal("has empty NBT tag").withStyle(ChatFormatting.LIGHT_PURPLE));
+               event.getToolTip().add(Component.literal("has an empty NBT tag! This is a bug!").withStyle(ChatFormatting.LIGHT_PURPLE));
         }
     }
 

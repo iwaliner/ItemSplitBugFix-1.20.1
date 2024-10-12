@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.iwaliner.item_split_bug_fix.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "item_split_bug_fix.refmap.json",
+  "mixins": [
+    "ItemStackMixin",
+    "SlotMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
