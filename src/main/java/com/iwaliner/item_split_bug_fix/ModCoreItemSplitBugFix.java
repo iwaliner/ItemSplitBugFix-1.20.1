@@ -121,7 +121,7 @@ public class ModCoreItemSplitBugFix {
     @SubscribeEvent
     public void ItemTooltipEvent(ItemTooltipEvent event) {
         if (ModCoreItemSplitBugFix.isSplitItemStack(event.getItemStack())) {
-            event.getToolTip().add(Component.literal("has an empty NBT tag! This is a bug!").withStyle(ChatFormatting.LIGHT_PURPLE));
+            event.getToolTip().add(Component.literal("[WARN by ItemSplitBugFix] This might provoke the split bug!").withStyle(ChatFormatting.LIGHT_PURPLE));
         }
     }
 
