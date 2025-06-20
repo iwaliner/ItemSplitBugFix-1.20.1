@@ -25,11 +25,14 @@ public abstract class SlotMixin {
 
     @Inject(method = "getItem",at = @At("HEAD"), cancellable = true)
     private void getItemInject(CallbackInfoReturnable<ItemStack> cir){
-        ItemStack stack=container.getItem(this.slot);
-        if(ModCoreItemSplitBugFix.isSplitItemStack(stack)){
-            stack.setTag(null);
+        if(this.container!=null) {
+            ItemStack stack = container.getItem(this.slot);
+            if (ModCoreItemSplitBugFix.isSplitItemStack(stack)) {
+                stack.setTag(null);
+                cir.setReturnValue(stack);
+            }
+
         }
-        cir.setReturnValue(stack);
     }
     @Inject(method = "set",at = @At("HEAD"), cancellable = true)
     private void setInject(ItemStack stack, CallbackInfo ci){

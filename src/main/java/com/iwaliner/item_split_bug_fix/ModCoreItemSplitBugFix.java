@@ -32,33 +32,6 @@ public class ModCoreItemSplitBugFix {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    /*@SubscribeEvent
-     public void ItemOverEvent(ItemStackedOnOtherEvent event){
-        fixBug(event.getCarriedItem());
-        fixBug(event.getStackedOnItem());
-     }
-    @SubscribeEvent
-    public void ItemCraftedEvent(PlayerEvent.ItemCraftedEvent event){
-        fixBug(event.getCrafting());
-    }
-    @SubscribeEvent
-    public void ItemSmeltedEvent(PlayerEvent.ItemSmeltedEvent event){
-        fixBug(event.getSmelting());
-    }
-
-    @SubscribeEvent
-    public void ItemMenuEvent(ContainerScreenEvent event){
-        for(int i=0;i<event.getContainerScreen().getMenu().getItems().size();i++) {
-            fixBug(event.getContainerScreen().getMenu().getItems().get(i));
-        }
-    }
-    @SubscribeEvent
-    public void ItemMenuEvent(PlayerContainerEvent event){
-        for(int i=0;i<event.getContainer().getItems().size();i++) {
-            fixBug(event.getContainer().getItems().get(i));
-        }
-    }*/
-
     private static boolean isItemOnBlacklist(ItemStack stack){
         if (stack == null || stack.isEmpty() || blacklistPattern.isEmpty()) {
             return true;
@@ -118,11 +91,11 @@ public class ModCoreItemSplitBugFix {
         }
     }
 
-    @SubscribeEvent
-    public void ItemTooltipEvent(ItemTooltipEvent event) {
-        if (ModCoreItemSplitBugFix.isSplitItemStack(event.getItemStack())) {
-            event.getToolTip().add(Component.literal("[WARN by ItemSplitBugFix] This might provoke the split bug!").withStyle(ChatFormatting.LIGHT_PURPLE));
-        }
-    }
+//    @SubscribeEvent
+//    public void ItemTooltipEvent(ItemTooltipEvent event) {
+//        if (ModCoreItemSplitBugFix.isSplitItemStack(event.getItemStack())) {
+//            event.getToolTip().add(Component.literal("[WARN by ItemSplitBugFix] This might provoke the split bug!").withStyle(ChatFormatting.LIGHT_PURPLE));
+//        }
+//    }
 
 }

@@ -7,7 +7,7 @@
     "ItemStackMixin",
     "SlotMixin"
   ],
-  "client": [],
+
   "injectors": {
     "defaultRequire": 1
   },
